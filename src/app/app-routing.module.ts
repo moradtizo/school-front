@@ -48,6 +48,14 @@ const routes: Routes = [
             (m) => m.ExtraPagesModule
           ),
       },
+      //list promotion
+      {
+        path: 'promotion',
+        loadChildren: () =>
+          import('./promotion/promotion.module').then(
+            (m) => m.PromotionModule
+          ),
+      },
       {
         path: 'multilevel',
         loadChildren: () =>

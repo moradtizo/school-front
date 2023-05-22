@@ -40,6 +40,72 @@ export const ROUTES: RouteInfo[] = [
       },
     ],
   },
+
+  //add promotion
+
+  {
+    path: '',
+    title: 'promotion',
+    iconType: 'material-icons-two-tone',
+    icon: 'home',
+    class: 'menu-toggle',
+    groupTitle: false,
+    badge: '',
+    badgeClass: '',
+    role: ['Admin'],
+    submenu: [
+      {
+        path: '/promotion/list-promotion',
+        title: 'list promotion',
+        iconType: '',
+        icon: '',
+        class: 'ml-menu',
+        groupTitle: false,
+        badge: '',
+        badgeClass: '',
+        role: [''],
+        submenu: [],
+      },
+      {
+        path: '/promotion/add-promotion',
+        title: 'add promotion',
+        iconType: '',
+        icon: '',
+        class: 'ml-menu',
+        groupTitle: false,
+        badge: '',
+        badgeClass: '',
+        role: [''],
+        submenu: [],
+      },
+    ],
+  },
+  // //list promotion
+  // {
+  //   path: '',
+  //   title: 'list promotion',
+  //   iconType: 'material-icons-two-tone',
+  //   icon: 'description',
+  //   class: 'menu-toggle',
+  //   groupTitle: false,
+  //   badge: '',
+  //   badgeClass: '',
+  //   role: ['Admin'],
+  //   submenu: [
+  //     {
+  //       path: '/promotion/list-promotion',
+  //       title: 'Blank Page',
+  //       iconType: '',
+  //       icon: '',
+  //       class: 'ml-menu',
+  //       groupTitle: false,
+  //       badge: '',
+  //       badgeClass: '',
+  //       role: [''],
+  //       submenu: [],
+  //     },
+  //   ],
+  // },
   // Teacher Modules
 
   {
