@@ -56,6 +56,14 @@ const routes: Routes = [
             (m) => m.PromotionModule
           ),
       },
+     // add devloppers
+      {
+        path: 'devloppers',
+        loadChildren: () =>
+          import('./devloppers/devloppers.module').then(
+            (m) => m.DevloppersModule
+          ),
+      },
       {
         path: 'multilevel',
         loadChildren: () =>

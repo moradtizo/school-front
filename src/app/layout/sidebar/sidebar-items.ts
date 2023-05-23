@@ -40,7 +40,33 @@ export const ROUTES: RouteInfo[] = [
       },
     ],
   },
+  //add devlopper
 
+  {
+      path: '',
+      title: 'devloppers',
+      iconType: 'material-icons-two-tone',
+      icon: 'description',
+      class: 'menu-toggle',
+      groupTitle: false,
+      badge: '',
+      badgeClass: '',
+      role: ['Admin'],
+      submenu: [
+        {
+          path: '/devloppers/add-devlopper',
+          title: 'add devlopper',
+          iconType: '',
+          icon: '',
+          class: 'ml-menu',
+          groupTitle: false,
+          badge: '',
+          badgeClass: '',
+          role: [''],
+          submenu: [],
+        },
+      ],
+    },
   //add promotion
 
   {
@@ -80,32 +106,7 @@ export const ROUTES: RouteInfo[] = [
       },
     ],
   },
-  // //list promotion
-  // {
-  //   path: '',
-  //   title: 'list promotion',
-  //   iconType: 'material-icons-two-tone',
-  //   icon: 'description',
-  //   class: 'menu-toggle',
-  //   groupTitle: false,
-  //   badge: '',
-  //   badgeClass: '',
-  //   role: ['Admin'],
-  //   submenu: [
-  //     {
-  //       path: '/promotion/list-promotion',
-  //       title: 'Blank Page',
-  //       iconType: '',
-  //       icon: '',
-  //       class: 'ml-menu',
-  //       groupTitle: false,
-  //       badge: '',
-  //       badgeClass: '',
-  //       role: [''],
-  //       submenu: [],
-  //     },
-  //   ],
-  // },
+
   // Teacher Modules
 
   {

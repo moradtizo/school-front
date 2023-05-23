@@ -44,14 +44,14 @@ export class SigninComponent
     this.authForm.get('username')?.setValue('admin@school.org');
     this.authForm.get('password')?.setValue('admin@123');
   }
-  teacherSet() {
-    this.authForm.get('username')?.setValue('teacher@school.org');
-    this.authForm.get('password')?.setValue('teacher@123');
-  }
-  studentSet() {
-    this.authForm.get('username')?.setValue('student@school.org');
-    this.authForm.get('password')?.setValue('student@123');
-  }
+  // teacherSet() {
+  //   this.authForm.get('username')?.setValue('teacher@school.org');
+  //   this.authForm.get('password')?.setValue('teacher@123');
+  // }
+  // studentSet() {
+  //   this.authForm.get('username')?.setValue('student@school.org');
+  //   this.authForm.get('password')?.setValue('student@123');
+  // }
   onSubmit() {
     this.submitted = true;
     this.loading = true;
