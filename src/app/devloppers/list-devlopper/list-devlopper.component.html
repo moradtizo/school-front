@@ -1,0 +1,107 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="materialTableHeader">
+            <div class="left">
+              <ul class="header-buttons-left ms-0">
+                <li class="tbl-title">
+                  <h2>Teachers</h2>
+                </li>
+                <li class="tbl-search-box">
+                  <label for="search-input"><i class="material-icons search-icon">search</i></label>
+                  <input placeholder="Search" type="text" #filter class="browser-default search-field"
+                    aria-label="Search box">
+                </li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="tbl-export-btn">
+                <li class="tbl-header-btn">
+                  <div class="m-l-10" matTooltip="ADD">
+                    <button mat-mini-fab color="primary" (click)="openDialog()" >
+                      <mat-icon class="col-white">add</mat-icon>
+                    </button>
+                  </div>
+                </li>
+                <li class="tbl-header-btn">
+                  <div class="m-l-10" matTooltip="REFRESH">
+                    <button mat-mini-fab color="primary" >
+                      <mat-icon class="col-white">refresh</mat-icon>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <ol>
+            <!-- <li>
+              <mat-form-field>
+                <mat-label>What's your name?</mat-label>
+                <input matInput [(ngModel)]="name">
+              </mat-form-field>
+            </li> -->
+          </ol>
+          <div class="header">
+          </div>
+          <div class="body">
+            <div class="tableBody">
+              <div class="table-responsive">
+                <table class="table display product-overview mb-30" id="support_table">
+                  <thead>
+                    <tr>
+                      <th>First name</th>
+                      <th>Last name</th>
+                      <th>Gender</th>
+                      <th>Phone</th>
+                      <th>birthday</th>
+                      <th>Skills</th>
+                      <th>Study level</th>
+                      <th>status</th>
+                      <th>action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr *ngFor="let item of developper">
+                      <td class="table-img">
+                        <a routerLink="/devloppers/about-developper" [routerLink]="['/devloppers/about-developper',item.id]">
+                        <img [src]="item.image" alt="">
+                      </a>
+                      </td>
+
+                      <td>{{item.first_name }}</td>
+                      <td>{{item.last_name }}</td>
+                      <td>
+                        <div class="badge col-green">{{item.phone }}</div>
+                      </td>
+                      <td>{{ item.birthday }}</td>
+                      <td>{{ item.skills }}</td>
+                      <td>{{ item.study_level }}</td>
+                      <td>{{ item.status }}</td>
+                      <td>
+                        <button mat-icon-button class="tbl-action-btn">
+                          <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                        </button>
+                        <button mat-icon-button class="tbl-action-btn" (click)="destroyD(item?.id ?? '')">
+                          <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

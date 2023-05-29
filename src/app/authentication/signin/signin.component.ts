@@ -22,6 +22,7 @@ export class SigninComponent
   loading = false;
   error = '';
   hide = true;
+
   constructor(
     private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
@@ -36,22 +37,22 @@ export class SigninComponent
       username: ['admin@school.org', Validators.required],
       password: ['admin@123', Validators.required],
     });
+
+    // this.authForm = this.formBuilder.group({
+    //   username: ['admin@codingtech.com', Validators.required],
+    //   password: ['12345678', Validators.required],
+    // });
+
   }
   get f() {
     return this.authForm.controls;
   }
-  adminSet() {
-    this.authForm.get('username')?.setValue('admin@school.org');
-    this.authForm.get('password')?.setValue('admin@123');
-  }
-  // teacherSet() {
-  //   this.authForm.get('username')?.setValue('teacher@school.org');
-  //   this.authForm.get('password')?.setValue('teacher@123');
+
+  // adminSet() {
+  //   this.authForm.get('username')?.setValue('admin@school.org');
+  //   this.authForm.get('password')?.setValue('admin@123');
   // }
-  // studentSet() {
-  //   this.authForm.get('username')?.setValue('student@school.org');
-  //   this.authForm.get('password')?.setValue('student@123');
-  // }
+
   onSubmit() {
     this.submitted = true;
     this.loading = true;
@@ -90,4 +91,5 @@ export class SigninComponent
         });
     }
   }
+
 }

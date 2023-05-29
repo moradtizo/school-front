@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 
 import { DevloppersRoutingModule } from './devloppers-routing.module';
 import { AddDevlopperComponent } from './add-devlopper/add-devlopper.component';
@@ -14,10 +14,26 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ComponentsModule } from '../shared/components/components.module';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ListDevlopperComponent } from './list-devlopper/list-devlopper.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgScrollbarModule } from 'ngx-scrollbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { DevlopperDialogComponent } from './list-devlopper/devlopper-dialog/devlopper-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { AboutDevelopperComponent } from './about-developper/about-developper.component';
+
+
 
 @NgModule({
   declarations: [
-    AddDevlopperComponent
+    AddDevlopperComponent,
+    ListDevlopperComponent,
+    DevlopperDialogComponent,
+    AboutDevelopperComponent,
+
   ],
   imports: [
     CommonModule,
@@ -33,7 +49,15 @@ import { MatSelectModule } from '@angular/material/select';
     MatTabsModule,
     MatStepperModule,
     ComponentsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    NgScrollbarModule,
+    NgApexchartsModule,
+    MatMenuModule,
+    SharedModule,
+    MatPaginatorModule,
+    NgIf,
+    MatDialogModule,
   ]
 })
 export class DevloppersModule { }

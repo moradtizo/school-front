@@ -59,13 +59,15 @@
     "ngx-scrollbar": "^11.0.0",
     "rxjs": "~7.8.0",
     "subsink": "^1.0.2",
-    "sweetalert2": "^11.4.8",
+    "sweetalert2": "^11.7.7",
     "tslib": "^2.3.0",
     "xlsx": "^0.18.5",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.2",
+    "@angular-devkit/core": "~15.2.2",
+    "@angular-devkit/schematics": "~15.2.2",
     "@angular-eslint/builder": "15.2.1",
     "@angular-eslint/eslint-plugin": "15.2.1",
     "@angular-eslint/eslint-plugin-template": "15.2.1",
@@ -73,6 +75,9 @@
     "@angular-eslint/template-parser": "15.2.1",
     "@angular/cli": "~15.2.2",
     "@angular/compiler-cli": "^15.2.2",
+    "@nx/angular": "16.2.1",
+    "@nx/workspace": "16.2.1",
+    "@schematics/angular": "~15.2.2",
     "@types/ckeditor__ckeditor5-build-classic": "^29.0.1",
     "@types/d3": "^7.4.0",
     "@types/jasmine": "~4.3.0",
@@ -85,6 +90,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "nx": "16.2.1",
+    "nx-cloud": "latest",
     "typescript": "~4.9.4"
   }
 }

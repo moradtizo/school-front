@@ -54,8 +54,20 @@ export const ROUTES: RouteInfo[] = [
       role: ['Admin'],
       submenu: [
         {
-          path: '/devloppers/add-devlopper',
-          title: 'add devlopper',
+          path: '/devloppers/add-devlopper/:uuid',
+          title: 'Add devlopper',
+          iconType: '',
+          icon: '',
+          class: 'ml-menu',
+          groupTitle: false,
+          badge: '',
+          badgeClass: '',
+          role: [''],
+          submenu: [],
+        },
+        {
+          path: '/devloppers/list-devlopper',
+          title: 'List devlopper',
           iconType: '',
           icon: '',
           class: 'ml-menu',
@@ -148,7 +160,7 @@ export const ROUTES: RouteInfo[] = [
     groupTitle: false,
     badge: '',
     badgeClass: '',
-    role: ['Admin'],
+    role: [''],//Admin
     submenu: [
       {
         path: '/authentication/signin',
@@ -233,7 +245,7 @@ export const ROUTES: RouteInfo[] = [
     groupTitle: false,
     badge: '',
     badgeClass: '',
-    role: ['Admin'],
+    role: [''],//Admin
     submenu: [
       {
         path: '/extra-pages/blank',
@@ -258,7 +270,7 @@ export const ROUTES: RouteInfo[] = [
     groupTitle: false,
     badge: '',
     badgeClass: '',
-    role: ['Admin'],
+    role: [''],//Admin
     submenu: [
       {
         path: '/multilevel/first1',
