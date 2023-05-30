@@ -1,5 +1,5 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -29,9 +29,16 @@ getUser(data:any){
 }
 
 
-registrationCom(formData:FormData,uuid:any):Observable<AddDevelopper>{
+// registrationCom(formData:FormData,uuid:any):Observable<Developper>{
+//   const url = `http://localhost:4000/api/v1/developer/complete-registration/${uuid}`;
+//   return this.http.post<Developper>(url, formData);
+// }
+
+
+registrationCom(formData: FormData, uuid: any): Observable<Developper> {
   const url = `http://localhost:4000/api/v1/developer/complete-registration/${uuid}`;
-  return this.http.post<AddDevelopper>(url, formData);
+  console.log('service',formData,uuid)
+  return this.http.post<Developper>(url, formData);
 }
 // gitOneD(id:number) {
 //   return this.http.post<Developper>(`${this.Url}/complete-registration/${id}`)

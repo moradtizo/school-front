@@ -1,8 +1,10 @@
-import { Developper,AddDevelopper} from 'src/app/core/models/developper/developper';
+import { RegisterD } from 'src/app/core/models/developper/registerDev';
+import { Developper} from 'src/app/core/models/developper/developper';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { Route, Router, ActivatedRoute } from '@angular/router';
+import { AbstractControl, FormBuilder, FormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import {  Router, ActivatedRoute } from '@angular/router';
 import { RegisterDev } from 'src/app/core/service/developper/registerDev.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-devlopper',
@@ -13,10 +15,8 @@ export class AddDevlopperComponent implements OnInit {
   image:any;
   cv:any;
    uuid:any
-  register: FormGroup | undefined;
-  authForm!: UntypedFormGroup;
-  developer: Developper = {}
-  isLinear = true; // or false, depending on your requirement
+  developer: Developper [] = []
+  // isLinear = true; // or false, depending on your requirement
   hide = true;
   firstFormGroup = new FormGroup({
      firstName:new UntypedFormControl ('', [Validators.required, Validators.minLength(2), Validators.maxLength(15), Validators.pattern('[a-zA-Z]*')]),
@@ -135,12 +135,33 @@ export class AddDevlopperComponent implements OnInit {
 
     formData.append('image', this.image)
     formData.append('cv', this.cv);
-     formData.append('developer' , JSON.stringify(developer) ) ;
+    //  formData.append('developer' , JSON.stringify(developer) ) ;
+     formData.append('first_name' , JSON.stringify(developer.first_name) ) ;
+     formData.append('last_name' , JSON.stringify(developer.last_name) ) ;
+     formData.append('email_address' , JSON.stringify(developer.email_address) ) ;
+     formData.append('phone' , JSON.stringify(developer.phone) ) ;
+     formData.append('address' , JSON.stringify(developer.address) ) ;
+     formData.append('skills' , JSON.stringify(developer.skills) ) ;
+     formData.append('linkedin' , JSON.stringify(developer.linkedin) ) ;
+     formData.append('website' , JSON.stringify(developer.website) ) ;
+     formData.append('github' , JSON.stringify(developer.github) ) ;
+     formData.append('gender' , JSON.stringify(developer.gender) ) ;
+     formData.append('birthday' , JSON.stringify(developer.birthday) ) ;
+     formData.append('description' , JSON.stringify(developer.description) ) ;
+     formData.append('bio' , JSON.stringify(developer.bio) ) ;
+     formData.append('study_level' , JSON.stringify(developer.study_level) ) ;
+     formData.append('education' , JSON.stringify(developer.education) ) ;
+     formData.append('certificate' , JSON.stringify(developer.certificate) ) ;
+     formData.append('password' , JSON.stringify(developer.password) ) ;
+     formData.append('status' , JSON.stringify(developer.status) ) ;
+
     console.log(developer)
-    this.registerDev.registrationCom(formData,this.uuid).subscribe((response:AddDevelopper) => {
-        this.developer = response.developer
+    this.registerDev.registrationCom(formData,this.uuid).subscribe((res:Developper) => {
+      this.developer = [...this.developer,res]
         this.firstFormGroup.reset()
          this.router.navigate(['/devloppers/list-devlopper'])
       })
   }
+
+
 }

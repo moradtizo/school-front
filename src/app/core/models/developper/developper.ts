@@ -19,13 +19,18 @@ export interface Developper {
       education?:string
       certificate?:string
       status?:string
+      password?:string
 
  }
- export interface ResDevelopper{
-  success?: boolean;
-  developers:Developper[];
-  // developer:Developper[];
+//  export interface ResDevelopper{
+//   success?: boolean;
+//   developers:Developper[];
+//   // developer:Developper[];
 
+// }
+export interface ResDevelopper {
+  success?: boolean;
+  developers: Developper[];
 }
 export interface ResOneDevelopper{
   success?: boolean;
@@ -34,5 +39,6 @@ export interface ResOneDevelopper{
 
 export interface AddDevelopper{
   success?: boolean;
-  developer:Developper;
+  // developer:Developper;
+  developer: Developper;
 }

@@ -24,6 +24,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { DevlopperDialogComponent } from './list-devlopper/devlopper-dialog/devlopper-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AboutDevelopperComponent } from './about-developper/about-developper.component';
+import { EditDevlopperComponent } from './edit-devlopper/edit-devlopper.component';
 
 
 
@@ -33,6 +34,7 @@ import { AboutDevelopperComponent } from './about-developper/about-developper.co
     ListDevlopperComponent,
     DevlopperDialogComponent,
     AboutDevelopperComponent,
+    EditDevlopperComponent,
 
   ],
   imports: [

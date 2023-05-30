@@ -12,7 +12,9 @@
             <div class="left">
               <ul class="header-buttons-left ms-0">
                 <li class="tbl-title">
-                  <h2>Teachers</h2>
+                  <h2>
+                    Developer
+                  </h2>
                 </li>
                 <li class="tbl-search-box">
                   <label for="search-input"><i class="material-icons search-icon">search</i></label>
@@ -53,7 +55,7 @@
           <div class="body">
             <div class="tableBody">
               <div class="table-responsive">
-                <table class="table display product-overview mb-30" id="support_table">
+                <table class="table display product-overview mb-30 shadow-lg p-3 mb-5 bg-body rounded" id="support_table">
                   <thead>
                     <tr>
                       <th>First name</th>
@@ -70,11 +72,12 @@
                   <tbody>
 
                     <tr *ngFor="let item of developper">
+                      <a routerLink="/devloppers/about-developper" [routerLink]="['/devloppers/about-developper',item.id]">
                       <td class="table-img">
-                        <a routerLink="/devloppers/about-developper" [routerLink]="['/devloppers/about-developper',item.id]">
                         <img [src]="item.image" alt="">
-                      </a>
+
                       </td>
+                    </a>
 
                       <td>{{item.first_name }}</td>
                       <td>{{item.last_name }}</td>
@@ -87,7 +90,7 @@
                       <td>{{ item.status }}</td>
                       <td>
                         <button mat-icon-button class="tbl-action-btn">
-                          <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+                          <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'" routerLink="/devloppers/edit-developper"></app-feather-icons>
                         </button>
                         <button mat-icon-button class="tbl-action-btn" (click)="destroyD(item?.id ?? '')">
                           <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>

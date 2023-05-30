@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddDevlopperComponent } from './add-devlopper/add-devlopper.component';
 import { ListDevlopperComponent } from './list-devlopper/list-devlopper.component';
 import { AboutDevelopperComponent } from './about-developper/about-developper.component';
+import { EditDevlopperComponent } from './edit-devlopper/edit-devlopper.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'about-developper/:id',
     component: AboutDevelopperComponent,
+  },
+  {
+    path: 'edit-developper/:id',
+    component: EditDevlopperComponent,
   }
 ];
 

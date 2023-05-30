@@ -17,27 +17,14 @@
               </div>
               <img [src]="details.image" class="user-img" alt="">
               <p>
-                {{ details.address }}
-                <br />New York
+                {{ details.bio }}
+                <!-- <br />New York -->
               </p>
               <div>
                 <span class="phone">
                   <i class="material-icons">phone</i>{{ details.phone }}</span>
               </div>
-              <!-- <div class="row">
-                <div class="col-4">
-                  <h5>564</h5>
-                  <small>Following</small>
-                </div>
-                <div class="col-4">
-                  <h5>18k</h5>
-                  <small>Followers</small>
-                </div>
-                <div class="col-4">
-                  <h5>565</h5>
-                  <small>Post</small>
-                </div>
-              </div> -->
+
             </div>
           </div>
         </div>
@@ -45,24 +32,27 @@
           <mat-tab-group mat-align-tabs="start">
             <mat-tab label="About">
               <div class="p-4">
-                <p class="text-default">{{ details.bio }}.</p>
+                <!-- <p class="text-default">{{ details.bio }}.</p> -->
                 <ul class="list-group list-group-unbordered">
                   <li class="list-group-item">
                     <b>Gender </b>
-                    <div class="profile-desc-item float-end">Female</div>
+                    <div class="profile-desc-item float-end">{{ details.gender }}</div>
                   </li>
                   <li class="list-group-item">
-                    <b>Lectures Taken </b>
-                    <div class="profile-desc-item float-end">11k+</div>
+                    <b>Email </b>
+                    <div class="profile-desc-item float-end">{{ details.email_address }}</div>
                   </li>
                   <li class="list-group-item">
-                    <b>Degree </b>
-                    <div class="profile-desc-item float-end">B.A., M.A., P.H.D.</div>
+                    <b>Phone </b>
+                    <div class="profile-desc-item float-end">{{ details.phone }}</div>
+                    <!-- <span class="phone">
+                      <i class="material-icons profile-desc-item float-end">phone</i>{{ details.phone }}
+                    </span> -->
                   </li>
-                  <li class="list-group-item">
+                  <!-- <li class="list-group-item">
                     <b>Designation</b>
                     <div class="profile-desc-item float-end">Sr. Teacher</div>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </mat-tab>
@@ -108,56 +98,17 @@
             <mat-tab>
               <ng-template mat-tab-label>
                 <mat-icon class="example-tab-icon msr-2">face</mat-icon>
-                About Me
+                More
               </ng-template>
               <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="project_widget">
                   <div class="header">
-                    <h2><strong>About</strong></h2>
+                    <!-- <h2><strong>About</strong></h2> -->
                   </div>
                   <div class="body">
-                    <div class="row">
-                      <div class="col-md-3 col-6 b-r">
-                        <strong>Full Name</strong>
-                        <br>
-                        <p class="text-muted">Emily Smith</p>
-                      </div>
-                      <div class="col-md-3 col-6 b-r">
-                        <strong>Mobile</strong>
-                        <br>
-                        <p class="text-muted">{{ details.phone }}</p>
-                      </div>
-                      <div class="col-md-3 col-6 b-r">
-                        <strong>Email</strong>
-                        <br>
-                        <p class="text-muted">{{ details.email_address}}</p>
-                      </div>
-                      <div class="col-md-3 col-6">
-                        <strong>Location</strong>
-                        <br>
-                        <p class="text-muted">India</p>
-                      </div>
-                    </div>
-                    <p class="m-t-30">Completed my graduation in Arts from the well known and
-                      renowned institution
-                      of India – SARDAR PATEL ARTS COLLEGE, BARODA in 2000-01, which was
-                      affiliated
-                      to M.S. University. I ranker in University exams from the same
-                      university
-                      from 1996-01.</p>
-                    <p>Worked as Professor and Head of the department at Sarda Collage, Rajkot,
-                      Gujarat
-                      from 2003-2015 </p>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                      industry. Lorem
-                      Ipsum has been the industry's standard dummy text ever since the 1500s,
-                      when
-                      an unknown printer took a galley of type and scrambled it to make a
-                      type
-                      specimen book. It has survived not only five centuries, but also the
-                      leap
-                      into electronic typesetting, remaining essentially unchanged.</p>
-                    <br>
+                    <p class="m-t-10">{{ details.description }}
+                      .</p>
+
                   </div>
                 </div>
               </div>
@@ -167,11 +118,22 @@
                     <h2><strong>Education</strong></h2>
                   </div>
                   <div class="body">
-                    <ul>
-                      <li>B.A.,Gujarat University, Ahmedabad,India.</li>
-                      <li>M.A.,Gujarat University, Ahmedabad, India.</li>
-                      <li>P.H.D., Shaurashtra University, Rajkot</li>
-                    </ul>
+                    <table class="table shadow p-3 mb-5 bg-body rounded">
+                      <thead>
+                        <tr>
+                          <th scope="col">year</th>
+                          <th scope="col">school</th>
+                          <th scope="col">Handle</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -232,7 +194,6 @@
                 </div>
               </div>
             </mat-tab>
-<!--
             <mat-tab>
               <ng-template mat-tab-label>
                 <mat-icon class="example-tab-icon msr-2">settings</mat-icon>
@@ -332,7 +293,7 @@
                   </div>
                 </div>
               </div>
-            </mat-tab> -->
+            </mat-tab>
           </mat-tab-group>
         </div>
       </div>

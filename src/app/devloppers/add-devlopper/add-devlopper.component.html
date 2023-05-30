@@ -10,11 +10,8 @@
         <div class="card">
           <div class="header">
 
-
           </div>
           <div class="body">
-
-
             <form [formGroup]="firstFormGroup"  (ngSubmit)="saveD()">
               <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
@@ -55,7 +52,7 @@
                 <mat-option [value]="'male'">male </mat-option>
                 <mat-option [value]="'female'">female</mat-option>
               </mat-select>
-              <mat-error *ngIf="firstFormGroup.controls.firstName.errors?.['required']">Gender is required.</mat-error>
+              <mat-error *ngIf="firstFormGroup.controls.gender.errors?.['required']">Gender is required.</mat-error>
                   </mat-form-field>
                 </div>
               </div>
@@ -118,7 +115,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                   <mat-form-field class="example-full-width mb-3" appearance="outline">
                     <mat-label >Skills</mat-label>
-                    <input matInput  formControlName="skills" required >
+                    <textarea matInput  formControlName="skills" required></textarea>
                       <mat-error *ngIf="firstFormGroup.controls.skills.errors?.['required']">Skills  is required.</mat-error>
                       <mat-error *ngIf="firstFormGroup.controls.skills.errors?.['minlength']">Skills must have at least 2 characters.</mat-error>
                       <mat-error *ngIf="firstFormGroup.controls.skills.errors?.['pattern']">Invalid Skills format.</mat-error>
@@ -199,19 +196,16 @@
                       </mat-form-field>
                     </div>
                   </div>
-
                   <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                           <label>Image</label>
                           <app-file-upload  (change)="onSelectFile($event)"></app-file-upload>
                           <!-- <mat-error *ngIf="firstFormGroup.controls.image.errors?.['required']">Image  is required.</mat-error> -->
-
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
                       <label>Cv</label>
                       <app-file-upload (change)="onSelectFile_2($event)" ></app-file-upload>
                       <!-- <mat-error *ngIf="firstFormGroup.controls.cv.errors?.['required']">Cv  is required.</mat-error> -->
-
                     </div>
                   </div>
                   <div class="row">
@@ -233,7 +227,6 @@
                       </mat-form-field>
                     </div>
                   </div>
-
                        <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
                           <mat-form-field class="example-full-width" appearance="outline">
