@@ -1,1 +1,246 @@
-<p>edit-devlopper works!</p>
+<section class="content mt-5">
+  <div class="content-block">
+    <div class="block-header" *ngFor="let breadscrum of breadscrums">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="breadscrum.title" [items]="breadscrum.items" [active_item]="breadscrum.active">
+      </app-breadcrumb>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="header">
+
+          </div>
+          <div class="body">
+            <form [formGroup]="editProductForm"  (ngSubmit)="updateDeveloper()">
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label >First name</mat-label>
+              <input matInput formControlName="firstName"  required >
+              <mat-error *ngIf="editProductForm.controls.firstName.errors?.['required']">First name is required.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.firstName.errors?.['minlength']">First name must have at least 2 characters.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.firstName.errors?.['pattern']">Invalid firstName format.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.firstName.errors?.['maxlength']">First name must be less than 15 characters.</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Last name</mat-label>
+              <input matInput formControlName="lastName" required>
+              <mat-error *ngIf="editProductForm.controls.lastName.errors?.['required']">Last name is required.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.lastName.errors?.['minlength']">Last name must have at least 2 characters.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.lastName.errors?.['pattern']">Invalid lastName format.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.lastName.errors?.['maxlength']">Last name must be less than 15 characters.</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                   <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="email_address" required >
+              <mat-error *ngIf="editProductForm.controls.email_address.errors?.['required']">Email is   required.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.email_address.errors?.['pattern']">Invalid email format.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.email_address.errors?.['maxlength']">Email must be less than 15 characters.</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>gender</mat-label>
+              <mat-select formControlName="gender" required>
+                <mat-option [value]="'male'">male </mat-option>
+                <mat-option [value]="'female'">female</mat-option>
+              </mat-select>
+              <mat-error *ngIf="editProductForm.controls.gender.errors?.['required']">Gender is required.</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                      <mat-label>Phone</mat-label>
+              <span matPrefix class="ms-2"> +212 &nbsp;</span>
+              <input type="tel" formControlName="phone" required matInput/>
+              <mat-error *ngIf="editProductForm.controls.phone.errors?.['required']">Phone is required.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.phone.errors?.['pattern']">Invalid Phone format.</mat-error>
+              <mat-error *ngIf="editProductForm.controls.phone.errors?.['maxlength']">Phone must be less than 10 characters.</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Address</mat-label>
+                      <input matInput formControlName="addresse" required/>
+                      <mat-error *ngIf="editProductForm.controls.addresse.errors?.['required']">Addresse is required.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.addresse.errors?.['pattern']">Invalid Addresse format.</mat-error>
+                     <mat-error *ngIf="editProductForm.controls.addresse.errors?.['maxlength']">Addresse must be less than 50 characters.</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <a href="#" onClick="return false;" matSuffix (click)="hide = !hide"
+                      [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon class="material-icons-two-tone color-icon m-3" matSuffix>
+                        {{hide ? 'visibility_off' : 'visibility'}}
+                      </mat-icon>
+                    </a>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Confirm password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPassword">
+                    <mat-error *ngIf="editProductForm.hasError('passwordMismatch')">
+                      Passwords do not match
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label>Date Of Birth</mat-label>
+               <input matInput [matDatepicker]="picker" formControlName="date"  required>
+               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+               <mat-datepicker #picker></mat-datepicker>
+               <mat-error *ngIf="editProductForm.controls.phone.errors?.['required']">date is required.</mat-error>
+                 </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                    <mat-label >Skills</mat-label>
+                    <textarea matInput  formControlName="skills" required></textarea>
+                      <mat-error *ngIf="editProductForm.controls.skills.errors?.['required']">Skills  is required.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.skills.errors?.['minlength']">Skills must have at least 2 characters.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.skills.errors?.['pattern']">Invalid Skills format.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.skills.errors?.['maxlength']">Skills must be less than 15 characters.</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label >Study level</mat-label>
+                <input matInput formControlName="study_level"  required  >
+                <mat-error *ngIf="editProductForm.controls.study_level.errors?.['required']">Study level  is required.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.study_level.errors?.['minlength']">Study level must have at least 2 characters.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.study_level.errors?.['pattern']">Invalid Study level format.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.study_level.errors?.['maxlength']">Study level must be less than 15 characters.</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                     <mat-label >Education</mat-label>
+                <input matInput formControlName="education"  required >
+                <mat-error *ngIf="editProductForm.controls.education.errors?.['required']">Education  is required.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.education.errors?.['minlength']">Education must have at least 2 characters.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.education.errors?.['pattern']">Invalid education format.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.education.errors?.['maxlength']">Education must be less than 15 characters.</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                  <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Certification</mat-label>
+                <input matInput formControlName="certificate"  required >
+                <mat-error *ngIf="editProductForm.controls.certificate.errors?.['required']">Certification  is required.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.certificate.errors?.['minlength']">Certification must have at least 2 characters.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.certificate.errors?.['pattern']">Invalid certificate format.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.certificate.errors?.['maxlength']">Certification must be less than 15 characters.</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Bio</mat-label>
+                        <input matInput formControlName="bio" required>
+                        <mat-error *ngIf="editProductForm.controls.bio.errors?.['required']">Bio  is required.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.bio.errors?.['minlength']">Bio must have at least 2 characters.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.bio.errors?.['pattern']">Invalid bio format.</mat-error>
+                      <mat-error *ngIf="editProductForm.controls.bio.errors?.['maxlength']">Bio must be less than 15 characters.</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width mb-3" appearance="outline">
+                        <mat-label>Status</mat-label>
+                        <mat-select formControlName="status" required>
+                          <mat-option [value]="'valid'">
+                            valid
+                          </mat-option>
+                          <mat-option [value]="'invalid'">
+                            invalid
+                          </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="editProductForm.controls.status.errors?.['required']">Status  is required.</mat-error>
+                    <mat-error *ngIf="editProductForm.controls.status.errors?.['minlength']">Status must have at least 2 characters.</mat-error>
+                    <mat-error *ngIf="editProductForm.controls.status.errors?.['pattern']">Invalid status format.</mat-error>
+                    <mat-error *ngIf="editProductForm.controls.status.errors?.['maxlength']">Status must be less than 15 characters.</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea matInput formControlName="description" required></textarea>
+                        <mat-error *ngIf="editProductForm.controls.description.errors?.['required']">Description  is required.</mat-error>
+                        <mat-error *ngIf="editProductForm.controls.description.errors?.['minlength']">Description must have at least 2 characters.</mat-error>
+                        <mat-error *ngIf="editProductForm.controls.description.errors?.['pattern']">Invalid description format.</mat-error>
+                        <mat-error *ngIf="editProductForm.controls.description.errors?.['maxlength']">Description must be less than 15 characters.</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                          <label>Image</label>
+                          <app-file-upload  (change)="onSelectFile($event)"></app-file-upload>
+                          <!-- <mat-error *ngIf="editProductForm.controls.image.errors?.['required']">Image  is required.</mat-error> -->
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <label>Cv</label>
+                      <app-file-upload (change)="onSelectFile_2($event)" ></app-file-upload>
+                      <!-- <mat-error *ngIf="editProductForm.controls.cv.errors?.['required']">Cv  is required.</mat-error> -->
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width mb-3" appearance="outline">
+                         <mat-label >Github</mat-label>
+                    <input matInput formControlName="github"  required >
+                    <mat-error *ngIf="editProductForm.controls.github.errors?.['required']">Github  is required.</mat-error>
+                    <mat-error *ngIf="editProductForm.controls.github.errors?.['minlength']">Github must have at least 2 characters.</mat-error>
+                    <mat-error *ngIf="editProductForm.controls.github.errors?.['pattern']">Invalid github format.</mat-error>
+                    <mat-error *ngIf="editProductForm.controls.github.errors?.['maxlength']">Github must be less than 15 characters.</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                      <mat-form-field class="example-full-width mb-3" appearance="outline">
+                            <mat-label>Website</mat-label>
+                    <input matInput formControlName="website"  required >
+                    <mat-error *ngIf="editProductForm.controls.website.errors?.['required']">Website  is required.</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                       <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5">
+                          <mat-form-field class="example-full-width" appearance="outline">
+                          <mat-label>Linkden</mat-label>
+                          <input matInput formControlName="linkedin"   required >
+                          <mat-error *ngIf="editProductForm.controls.linkedin.errors?.['required']">Linkedin  is required.</mat-error>
+                        </mat-form-field>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary btn-block mb-4">add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

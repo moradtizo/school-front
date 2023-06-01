@@ -32,9 +32,6 @@
               <mat-label>Profil</mat-label>
               <mat-select formControlName="profil" required>
                 <mat-option [value]="'developer'">developer </mat-option>
-                <!-- <mat-option [value]="'female'">
-                  female
-                </mat-option> -->
               </mat-select>
 
               <mat-error *ngIf="registerFormGroup.get('profil')?.hasError('required')">

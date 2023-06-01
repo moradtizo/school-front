@@ -101,12 +101,10 @@ export class AddDevlopperComponent implements OnInit {
     }
   }
   saveD(){
-    // const uuid = this.activatedRoute.snapshot.paramMap.get('uuid');
     const formData = new FormData() ;
     // if(!this.image){
     //   return
     // }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const developer = {
       first_name: this.firstFormGroup.controls['firstName'].value,
       last_name: this.firstFormGroup.controls['lastName'].value,

@@ -20,6 +20,28 @@ export class AboutDevelopperComponent implements OnInit {
     },
   ];
 constructor( private developperService:DevelopperService,private  route: ActivatedRoute){}
+async downloadPdf(pdfUrl: string): Promise<void> {
+  const response = await fetch(pdfUrl);
+  const blob = await response.blob();
+
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'document.pdf';
+  link.click();
+}
+
+async downloadImage(imageUrl: string): Promise<void> {
+  const response = await fetch(imageUrl);
+  const blob = await response.blob();
+
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'image.jpg';
+  link.click();
+}
+
+
+
 
 ngOnInit(): void {
  this.route.params.subscribe((params: any) => this.getDetails(params.id))

@@ -25,6 +25,7 @@ import { DevlopperDialogComponent } from './list-devlopper/devlopper-dialog/devl
 import { MatDialogModule } from '@angular/material/dialog';
 import { AboutDevelopperComponent } from './about-developper/about-developper.component';
 import { EditDevlopperComponent } from './edit-devlopper/edit-devlopper.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -60,6 +61,7 @@ import { EditDevlopperComponent } from './edit-devlopper/edit-devlopper.componen
     MatPaginatorModule,
     NgIf,
     MatDialogModule,
+    RouterModule
   ]
 })
 export class DevloppersModule { }

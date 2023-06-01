@@ -54,53 +54,55 @@
           </div>
           <div class="body">
             <div class="tableBody">
+
               <div class="table-responsive">
-                <table class="table display product-overview mb-30 shadow-lg p-3 mb-5 bg-body rounded" id="support_table">
-                  <thead>
-                    <tr>
-                      <th>First name</th>
-                      <th>Last name</th>
-                      <th>Gender</th>
-                      <th>Phone</th>
-                      <th>birthday</th>
-                      <th>Skills</th>
-                      <th>Study level</th>
-                      <th>status</th>
-                      <th>action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+  <table class="table display product-overview mb-30 shadow p-3 mb-4 bg-body rounded" id="support_table">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Birthday</th>
+        <th>Skills</th>
+        <th>Study level</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of developers">
+        <td class="table-img">
+          <a routerLink="/devloppers/about-developper" [routerLink]="['/devloppers/about-developper', item.id]">
+            <img [src]="item.image" alt="">
+          </a>
+        </td>
+        <td>{{ item.first_name }}</td>
+        <td>{{ item.last_name }}</td>
+        <td>
+          <div class="badge col-green">{{ item.phone }}</div>
+        </td>
+        <td>{{ item.birthday }}</td>
+        <td>{{ item.skills }}</td>
+        <td>{{ item.study_level }}</td>
+        <td>{{ item.status }}</td>
+        <td>
+          <button mat-icon-button class="tbl-action-btn" [routerLink]="['/devloppers/edit-developper/',item.id]">
+            <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+          </button>
+          <button mat-icon-button class="tbl-action-btn" (click)="destroyD(item?.id ?? '')">
+            <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator [length]="pagination?.totalItems" [pageSize]="limit"  [pageSizeOptions]="[5, 10, 20]" [pageIndex]="page - 1" (page)="onPageChange($event)"></mat-paginator>
 
-                    <tr *ngFor="let item of developper">
-                      <a routerLink="/devloppers/about-developper" [routerLink]="['/devloppers/about-developper',item.id]">
-                      <td class="table-img">
-                        <img [src]="item.image" alt="">
+  <!-- <mat-paginator [length]="pagination?.totalItems"  [pageSize]="limit" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
+</div>
 
-                      </td>
-                    </a>
 
-                      <td>{{item.first_name }}</td>
-                      <td>{{item.last_name }}</td>
-                      <td>
-                        <div class="badge col-green">{{item.phone }}</div>
-                      </td>
-                      <td>{{ item.birthday }}</td>
-                      <td>{{ item.skills }}</td>
-                      <td>{{ item.study_level }}</td>
-                      <td>{{ item.status }}</td>
-                      <td>
-                        <button mat-icon-button class="tbl-action-btn">
-                          <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'" routerLink="/devloppers/edit-developper"></app-feather-icons>
-                        </button>
-                        <button mat-icon-button class="tbl-action-btn" (click)="destroyD(item?.id ?? '')">
-                          <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-              </div>
             </div>
           </div>
         </div>

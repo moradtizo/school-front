@@ -42,3 +42,10 @@ export interface AddDevelopper{
   // developer:Developper;
   developer: Developper;
 }
+
+export interface Pagination {
+  currentPage: number;
+  totalPages: number;
+  totalItems: number;
+  nextPage: number;
+}

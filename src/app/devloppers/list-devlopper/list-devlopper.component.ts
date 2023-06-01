@@ -1,8 +1,10 @@
+import { number } from 'echarts';
 import { MatDialog } from '@angular/material/dialog';
-import { Developper, ResDevelopper } from './../../core/models/developper/developper';
+import { Developper, ResDevelopper, Pagination } from './../../core/models/developper/developper';
 import { DevelopperService } from './../../core/service/developper/developper.service';
 import { Component, OnInit } from '@angular/core';
 import { DevlopperDialogComponent } from './devlopper-dialog/devlopper-dialog.component';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -12,6 +14,11 @@ import { DevlopperDialogComponent } from './devlopper-dialog/devlopper-dialog.co
 })
 export class ListDevlopperComponent  implements OnInit {
 developper: Developper[] | undefined=[]
+developers: Developper[] | undefined;
+pagination: any; // Update the type based on your API response
+page = 1;
+limit = 5;
+
   breadscrums = [
     {
       title: 'List developer',
@@ -22,14 +29,16 @@ developper: Developper[] | undefined=[]
 constructor( private developperService:DevelopperService,public dialog: MatDialog){}
 
 ngOnInit(): void {
-this.allDev()
+this.getAllDevelopers()
 }
 
-allDev(){
-  this.developperService.getAllDev().subscribe((res: ResDevelopper) =>
-
-  this.developper = res.developers
- );
+getAllDevelopers(): void {
+  this.developperService.getDevelopers(this.page, this.limit).subscribe((res: { developers: Developper[], pagination: Pagination }) => {
+    this.developers = res.developers;
+    this.pagination = res.pagination;
+    console.log(res.developers);
+    console.log(res.pagination);
+  });
 }
 
 
@@ -49,14 +58,20 @@ animal: string | undefined;
   destroyD(id:string){
 
 
-
-
-        this.developperService.deleteD(id).subscribe(()=> {
-          this.allDev()
+    if(!confirm('are you delete this developer')){
+      return
+    }
+ this.developperService.deleteD(id).subscribe(()=> {
+          this.getAllDevelopers()
         })
 
       }
 
+      onPageChange(event: PageEvent): void {
+        this.page = event.pageIndex + 1;
+        this.limit = event.pageSize;
+        this.getAllDevelopers();
+      }
 
 
 }
